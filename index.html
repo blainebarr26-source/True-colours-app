@@ -24,9 +24,10 @@ const creators=[
 ];
 let role="creator",logged=false,page="home";
 const app=document.getElementById("app");
+  function setRole(r){role=r;login();}
 function login(){
 app.innerHTML=`<main class="login"><div class="loginbox">
-<div class="brand">TRUE COLOURS</div><h1>CREATOR<br>HUB</h1><div class="sub">Creator & Management Platform</div>
+<div class="tabs"><button type="button" class="${role==='creator'?'active':''}" onclick="setRole('creator')">Creator</button><button type="button" class="${role==='manager'?'active':''}" onclick="setRole('manager')">Management</button></div>
 <div class="tabs"><button class="${role==='creator'?'active':''}" onclick="role='creator';login()">Creator</button><button class="${role==='manager'?'active':''}" onclick="role='manager';login()">Management</button></div>
 <input class="input" id="email" placeholder="Email" type="email"><input class="input" id="pass" placeholder="Password" type="password">
 <button class="primary" onclick="logged=true;page='home';render()">Sign in</button><div class="hint">Demo mode — any email and password</div></div></main>`;
